@@ -1,0 +1,12 @@
+.header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #E1E1E1;
+    &__logo {
+        position: absolute;
+        width: 120px;
+        height: 33px;
+        left: 100px;
+        top: 24px;
+    }
+}

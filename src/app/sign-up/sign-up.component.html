@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="container__sign-up register-form">
+      <div class="register-form__title">
+        <h2>Create Account</h2>
+        <p>Let’s get productive toghether!</p>
+      </div>
+      <div class="register-form__form form-fields">
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field> -->
+        <div class="form-fields__wrap">
+          <label class="form-fields__label" for="">Full name *</label>
+          <input class="form-fields__input" type="text" placeholder="Enter full name">
+          <!-- <div *ngIf="name.errors?.required">
+            Name is required.
+          </div> -->
+        </div>
+        <div class="form-fields__wrap">
+          <label class="form-fields__label" for="">Username *</label>
+          <input class="form-fields__input" type="text" placeholder="Enter username">
+        </div>
+        <div class="form-fields__wrap">
+          <label class="form-fields__label" for="">Email *</label>
+          <input class="form-fields__input" type="email" required placeholder="Enter email">
+        </div>
+        <div class="form-fields__wrap">
+          <label class="form-fields__label" for="">Phone number *</label>
+          <input class="form-fields__input" type="number" placeholder="Enter phone">
+        </div>
+        <div class="form-fields__wrap _address">
+          <label class="form-fields__label" for="">Address line *</label>
+          <input class="form-fields__input" type="text" placeholder="Enter address">
+        </div>
+        <div class="form-fields__wrap _suite">
+          <label class="form-fields__label" for="">Suite</label>
+          <input class="form-fields__input" type="text" placeholder="Suite">
+        </div>
+        <div class="form-fields__wrap">
+          <label class="form-fields__label" for="">City *</label>
+          <input class="form-fields__input" type="text" placeholder="Enter city">
+        </div>
+        <div class="form-fields__wrap">
+          <label class="form-fields__label" for="">ZIP Code *</label>
+          <input class="form-fields__input" type="number" placeholder="Enter code">
+        </div>
+        <div class="form-fields__wrap _btn">
+          <button class="form-fields__button" type="button" [routerLink]="[ '/main']">
+            <span></span>
+            Create Account
+            <img class="form-fields__arrow" src="/assets/img/Vector.png" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
