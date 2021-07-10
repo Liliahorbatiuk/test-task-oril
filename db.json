@@ -1,0 +1,20 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Schedule a new apartment overview (Details: Sarah, 215 Newarc Drive, New Jersey,\n                    202-555-0183)"
+    },
+    {
+      "title": "Make edits to current development plan based on feedback from the last stakeholders meeting, send\n                    to John afterwards the edits were made. Notify everybody in Slack",
+      "id": 2
+    },
+    {
+      "title": "Put toghether a development plan",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "Clean house!"
+    }
+  ]
+}

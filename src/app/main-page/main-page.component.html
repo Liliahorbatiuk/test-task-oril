@@ -11,12 +11,32 @@
                 <span [style.text-decoration]="todo.completed ? 'line-through' : 'none'" >{{ todo.title }}</span>
             </div>
             <div class="todo-field__btns">
-                <button><img src="/assets/img/edit.png" alt="" (click)="openEditModal(editToDo)"></button>
+                <button><img src="/assets/img/edit.png" alt="" (click)="openEditModal(editToDo)" (click)="editTodo(todo)"></button>
                 <button><img src="/assets/img/delete.png" alt="" (click)="openDeleteModal(deleteToDo)"></button>
             </div>
         </div>
 
-        <div class="todo-container__box todo-field">
+        <ng-template #deleteToDo>
+            <div class="modal-header">
+                <div class="modal-header__close">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                        <span aria-hidden="true"><img src="/assets/img/closed.svg" alt=""></span>
+                    </button>
+                </div>
+                <div class="modal-title">
+                    <h1 class="modal-title">Removing a ToDo</h1>
+                    <span class="modal-title__deltext">Are you sure you want to remove this ToDo? It would be impossible to
+                        restore it afterwards</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <span>{{ todo.title }}</span>
+                <button class="modal-body__deleteBtn" type="button" (click)="deleteTodo(todo)" (click)="modalRef.hide()">
+                    Yes, Remove ToDo
+                </button>
+            </div>
+        </ng-template>
+        <!-- <div class="todo-container__box todo-field">
             <div class="todo-field__task">
                 <input type="checkbox">
                 <span>Schedule a new apartment overview (Details: Sarah, 215 Newarc Drive, New Jersey,
@@ -62,7 +82,7 @@
                 <button><img src="/assets/img/delete.png" alt=""></button>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <ng-template #addToDo>
@@ -78,7 +98,7 @@
     </div>
     <div class="modal-body">
         <textarea class="modal-body__text" [(ngModel)]="todoTitle" name="todoTitle" placeholder="Start typing ..."></textarea>
-        <button (click)="addTodo()" class="modal-body__saveBtn" type="button">
+        <button (click)="addTodo()" (click)="modalRef.hide()" class="modal-body__saveBtn" type="button">
             <span></span>
             Save ToDo
             <img class="modalSaveBtn-arrow" src="/assets/img/Vector.png" alt="">
@@ -98,8 +118,8 @@
         </div>
     </div>
     <div class="modal-body">
-        <textarea class="modal-body__text" name="" id=""></textarea>
-        <button class="modal-body__saveBtn" type="button">
+        <textarea class="modal-body__text" [(ngModel)]="todoTitle" name="" id=""></textarea>
+        <button class="modal-body__saveBtn" type="button" (click)="saveEdit()" (click)="modalRef.hide()">
             <span></span>
             Save ToDo
             <img class="modalSaveBtn-arrow" src="/assets/img/Vector.png" alt="">
@@ -107,7 +127,7 @@
     </div>
 </ng-template>
 
-<ng-template #deleteToDo>
+<!-- <ng-template #deleteToDo>
     <div class="modal-header">
         <div class="modal-header__close">
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -121,9 +141,9 @@
         </div>
     </div>
     <div class="modal-body">
-        <span></span>
-        <button class="modal-body__deleteBtn" type="button">
+        <span>{{  }}</span>
+        <button class="modal-body__deleteBtn" type="button" (click)="deleteTodo(todo)" (click)="modalRef.hide()">
             Yes, Remove ToDo
         </button>
     </div>
-</ng-template>
+</ng-template> -->

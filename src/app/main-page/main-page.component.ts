@@ -39,12 +39,23 @@ export class MainPageComponent implements OnInit {
   }
 
   getTodo(): void {
-    this.userToDo = this.todoService.getToDos();
-  } 
+    this.todoService.getTodos().subscribe(
+      data => {
+        this.userToDo = data;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
 
   addTodo(): void {
-    const newToDo = new ToDo(1, this.userId, this.todoTitle, this.todoComleted);
+    const newToDo = new ToDo(this.todoId, this.userId, this.todoTitle, this.todoComleted);
     console.log(newToDo);
+    delete newToDo.id
+    this.todoService.postTodos(newToDo).subscribe(() => {
+      this.getTodo()
+    })
     this.resetForm();
   }
 
@@ -60,5 +71,26 @@ export class MainPageComponent implements OnInit {
       this.userToDo[i].completed = false;
     }
   }
+
+  deleteTodo(todo: IToDo): void {
+    this.todoService.deleteTodos(todo).subscribe(() => {
+      console.log('done');
+      this.getTodo();
+    })
+  }
+
+  editTodo(todo: IToDo): void {
+    this.todoId = todo.id;
+    this.todoTitle = todo.title;
+  }
+  
+  saveEdit(): void {
+    const updTodo = new ToDo(this.todoId, this.userId, this.todoTitle, this.todoComleted);
+    this.todoService.updateTodos(updTodo).subscribe(() => {
+      this.getTodo();
+    })  
+    this.resetForm();
+  }
+
 }
  
