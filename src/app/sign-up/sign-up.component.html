@@ -1,58 +1,59 @@
 <div class="container">
-    <div class="container__sign-up register-form">
-      <div class="register-form__title">
-        <h2>Create Account</h2>
-        <p>Let’s get productive toghether!</p>
-      </div>
+  <div class="container__sign-up register-form">
+    <div class="register-form__title">
+      <h2>Create Account</h2>
+      <p>Let’s get productive toghether!</p>
+    </div>
+    <form [formGroup]="signUpForm" (submit)="onSubmit()">
       <div class="register-form__form form-fields">
-        <!-- <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field> -->
-        <div class="form-fields__wrap">
+        <div class="form-fields__wrap form-group">
           <label class="form-fields__label" for="">Full name *</label>
-          <input class="form-fields__input" type="text" placeholder="Enter full name">
-          <!-- <div *ngIf="name.errors?.required">
-            Name is required.
-          </div> -->
+          <input class="form-fields__input" type="text" formControlName="name" placeholder="Enter full name">
         </div>
         <div class="form-fields__wrap">
           <label class="form-fields__label" for="">Username *</label>
-          <input class="form-fields__input" type="text" placeholder="Enter username">
+          <input class="form-fields__input" type="text" formControlName="username" placeholder="Enter username">
         </div>
         <div class="form-fields__wrap">
           <label class="form-fields__label" for="">Email *</label>
-          <input class="form-fields__input" type="email" required placeholder="Enter email">
+          <input class="form-fields__input" name="email" formControlName="email" placeholder="Enter email">
+          <!-- <div class="alert alert-danger"
+            *ngIf="myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched">
+            Некорректный email
+          </div> -->
+          <span class="errmes" *ngIf="isControlInvalid('email')">Please enter a valid email address</span>
         </div>
         <div class="form-fields__wrap">
           <label class="form-fields__label" for="">Phone number *</label>
-          <input class="form-fields__input" type="number" placeholder="Enter phone">
+          <input class="form-fields__input" type="number" formControlName="phone" placeholder="Enter phone" />
         </div>
-        <div class="form-fields__wrap _address">
-          <label class="form-fields__label" for="">Address line *</label>
-          <input class="form-fields__input" type="text" placeholder="Enter address">
-        </div>
-        <div class="form-fields__wrap _suite">
-          <label class="form-fields__label" for="">Suite</label>
-          <input class="form-fields__input" type="text" placeholder="Suite">
-        </div>
-        <div class="form-fields__wrap">
-          <label class="form-fields__label" for="">City *</label>
-          <input class="form-fields__input" type="text" placeholder="Enter city">
-        </div>
-        <div class="form-fields__wrap">
-          <label class="form-fields__label" for="">ZIP Code *</label>
-          <input class="form-fields__input" type="number" placeholder="Enter code">
+        <div class="form-fields__addressgroup" formFroupName="address">
+          <div class="form-fields__wrap _address">
+            <label class="form-fields__label" for="">Address line *</label>
+            <input class="form-fields__input" formControlName="address" placeholder="Enter address">
+          </div>
+          <div class="form-fields__wrap _suite">
+            <label class="form-fields__label" for="">Suite</label>
+            <input class="form-fields__input" type="text" formControlName="suite" placeholder="Suite">
+          </div>
+          <div class="form-fields__wrap">
+            <label class="form-fields__label" for="">City *</label>
+            <input class="form-fields__input" type="text" formControlName="city" placeholder="Enter city">
+          </div>
+          <div class="form-fields__wrap">
+            <label class="form-fields__label" for="">ZIP Code *</label>
+            <input class="form-fields__input" type="number" formControlName="zipcode" placeholder="Enter code">
+          </div>
         </div>
         <div class="form-fields__wrap _btn">
-          <button class="form-fields__button" type="button" [routerLink]="[ '/main']">
+          <button class="form-fields__button" type="submit">
+            <!-- [routerLink]="[ '/main']" -->
             <span></span>
             Create Account
             <img class="form-fields__arrow" src="/assets/img/Vector.png" alt="">
           </button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-  
+</div>

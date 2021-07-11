@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef  } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToDo } from '../shared/classes/todo.model';
 import { IToDo } from '../shared/interfaces/todo.interface';
@@ -15,17 +15,16 @@ export class MainPageComponent implements OnInit {
   userToDo: Array<IToDo> = [];
   userId: number;
   todoId: number;
-  todoTitle: string;
+  todoTitle: string = '';
   todoComleted: boolean;
 
   constructor(private modalService: BsModalService,
-              private todoService: TodoService) {}
-  
+    private todoService: TodoService) { }
+
   ngOnInit(): void {
     this.getTodo();
-    // this.addTodo();
   }
- 
+
   openAddModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
@@ -64,10 +63,10 @@ export class MainPageComponent implements OnInit {
   }
 
   change(i): void {
-    if (this.userToDo[i].completed === false){
+    if (this.userToDo[i].completed === false) {
       this.userToDo[i].completed = true;
     }
-    else{
+    else {
       this.userToDo[i].completed = false;
     }
   }
@@ -83,14 +82,15 @@ export class MainPageComponent implements OnInit {
     this.todoId = todo.id;
     this.todoTitle = todo.title;
   }
-  
+
   saveEdit(): void {
     const updTodo = new ToDo(this.todoId, this.userId, this.todoTitle, this.todoComleted);
     this.todoService.updateTodos(updTodo).subscribe(() => {
       this.getTodo();
-    })  
-    this.resetForm();
+    })
+    
+
   }
 
 }
- 
+

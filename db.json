@@ -1,6 +1,10 @@
 {
   "todos": [
     {
+      "title": "Respond to Mike’s email",
+      "id": 4
+    },
+    {
       "id": 1,
       "title": "Schedule a new apartment overview (Details: Sarah, 215 Newarc Drive, New Jersey,\n                    202-555-0183)"
     },
@@ -13,8 +17,8 @@
       "id": 3
     },
     {
-      "id": 4,
-      "title": "Clean house!"
+      "title": "Conduct project overview and estimation session with the team. Make sure everybody takes part in the estimation process",
+      "id": 5
     }
   ]
 }

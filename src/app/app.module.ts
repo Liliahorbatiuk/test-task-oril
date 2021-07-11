@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 
@@ -28,6 +29,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HttpClientModule,
     MatFormFieldModule,
     FormsModule,
+    ReactiveFormsModule,
     ModalModule.forRoot()
   ],
   providers: [],

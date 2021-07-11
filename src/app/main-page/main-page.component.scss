@@ -2,7 +2,6 @@
     width: 800px;
     height: 704px;
     margin: 100px auto;
-    // border: 1px solid #E1E1E1;
 
     &__top {
         width: 100%;
@@ -59,6 +58,7 @@
         margin-bottom: 30px;
         box-sizing: border-box;
     }
+
     .todo-field {
         &__task {
             padding: 24px;
@@ -70,10 +70,10 @@
                 min-width: 20px;
                 height: 20px;
                 border: 1px solid #E1E1E1;
-                border-radius: 4px;
-                // &:checked {
-                //     background: #2CC88E;
-                // }
+                border-radius: 4px;  
+            }
+            input[type="checkbox"]:checked {
+                background-color: #38EE7E;
             }
             span {
                 font-family: 'Open Sans';
@@ -83,6 +83,7 @@
                 margin-left: 10px;
             }
         }
+
         &__btns {
             display: flex;
             justify-content: space-between;
@@ -95,7 +96,7 @@
                 background: #fff;
                 border: none;
                 margin-left: 27px;
-
+                outline: none;
             }
         }
     }
@@ -105,10 +106,6 @@
     width: 560px;
     height: 296px;
 }
-
-// .modal-content {
-//     padding: 40px;
-// }
 
 .modal-header {
     display: flex;
@@ -161,9 +158,13 @@
         font-family: 'Open Sans';
         margin: 24px auto;
         padding: 8px 14px;
-        color: #C0C0C6;
+        color: #30313A;;
     }
-    &__saveBtn {
+    textarea:focus {
+        outline: none;
+    }
+    
+    &__saveBtn, &__saveEditBtn {
         width: 400px;
         height: 50px;
         display: flex;
@@ -177,16 +178,19 @@
         font-size: 18px;
         line-height: 22px;
         color: #FFFFFF;
-        // background: #D0D0D0;
-        background: linear-gradient(270deg, #1EA39B 0%, #38EF7D 100%);
         text-align: center;
         border: none;
         cursor: pointer;
+        outline: none;
+        background: linear-gradient(270deg, #1EA39B 0%, #38EF7D 100%);
         img {
             width: 16px;
             height: 16px;
         }
+        
     }
+
+
 
     &__deleteBtn {
         width: 400px;
@@ -201,5 +205,6 @@
         font-size: 18px;
         line-height: 22px;
         color: #30313A;
+        outline: none;
     }
 }
